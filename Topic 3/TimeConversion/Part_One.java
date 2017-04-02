@@ -13,8 +13,14 @@ public class Part_One {
 		
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter an hour in the 24-hour format: ");
-		int twentyFourHour = input.nextInt();
-
+		twentyFourHour = input.nextInt();
+		
+		System.out.println(doConversion(twentyFourHour));
+		
+	}
+	
+	private static String doConversion(int twentyFourHour) {
+		return twentyFourHour % 12 + ((twentyFourHour > 12) ? "pm" : "am");
 	}
 	
 	public static int doConversion(int twentyFourHour) {

@@ -20,27 +20,63 @@ public class Exercise_ThirtyFive {
 		String answer;
 		
 		// Add any words you wish in this array
-		String [] words = {"program", "word", "hello", "dead", "hangman", "computer"};
-		
-		private Random randomGenerator;
-		randomGenerator = new Random();
+		String [] words = {"program", "word", "hello", "hangman", "computer"};
 		
 		do {
-			String word = words[randomGenerator.nextInt(words.length)];
-			String guess = "";
+			int i = intRandom(0, words.length - 1);
+			char[] word = words[i].toCharArray();
+			boolean[] mask = new boolean[word.length];
+			int correctGuesses = 0;
+			int misses = 0;
+		while (correctGuesses != word.length){
+			System.out.print("(Guess) Enter a letter in word ");
+	
 			
-			for (int i = 0; i < word.length(); i++ ) {
-				guess += "*";
+			for (int j = 0; j < word.length; j++) {
+				if (mask[j])
+					System.out.print(word[j]);
+				else 
+					System.out.print("*");
 			}
-			
-			while (wordNotDone) {
-				
-			}
-
-			System.out.println("Do you want to guess another word? Enter y or n> ");
-			answer = input.nextLine();
 		
-		} while (answer.equals("y"));
+		System.out.print(">");
+		char guess = input.next().charAt(0);
+		
+		boolean miss = true;
+		boolean repeat = false;
+		
+		for (int j = 0; j < word.length; j++) {
+			if (word[j] == guess) {
+				if (mask[j] != true) {
+					mask[j] = true;
+					correctGuesses++;
+				}
+				else {
+					repeat = true;
+					break;
+				}
+				miss = false;
+			}
+		}
+		
+		if (miss)
+			misses++;
+		if (repeat)
+			System.out.println(guess + " is already in the word");
+		}
+
+		System.out.println("The word is " + String.valueOf(word) + ". You missed " +
+				misses + " times");
+			
+		System.out.println("Do you want to guess another word? Enter y or n> ");
+			answer = input.next();
+		
+		} while (answer.charAt(0) != 'n');
+		
+	}
+	
+	public static int intRandom(int lowerBound, int upperBound) {
+		return (int) (lowerBound + Math.random() * (upperBound - lowerBound + 1));
 		
 	}
 }
