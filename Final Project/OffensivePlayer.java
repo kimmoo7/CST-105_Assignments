@@ -1,16 +1,16 @@
 package final_project;
 
-public class OffensivePlayer extends NFLPlayer {
+public class OffensivePlayer extends NFLPlayer implements Celebrator {
 	
 	private long passingYards;
 	private long rushingYards;
 	private long receivingYards;	
 	private int touchdowns;
 	
-	OffensivePlayer(String name, long passingYards, long rushingYards, long receivingYards,
-		int touchdowns) {
+	OffensivePlayer(String team, String name, String position, long passingYards, 
+						long rushingYards, long receivingYards, int touchdowns) {
 			
-		super(name);
+		super(team, name, position);
 		
 		this.passingYards = passingYards;
 		this.rushingYards = rushingYards;
@@ -49,4 +49,15 @@ public class OffensivePlayer extends NFLPlayer {
 	public void setTouchdowns(int touchdowns) {
 		this.touchdowns = touchdowns;
 	}
+	
+	public void celebrate() {
+		String [] celebrations = {this.name + " eats a cake", 
+		                          this.name + " dances ballet solo", 
+		                          this.name + " sings \"All I do is Win\"", 
+		                          this.name + " does awesome break dancing moves",
+		                          this.name + " buys a monster slurpee"};
+		int random = (int)(Math.random() * 5);
+		System.out.println(celebrations[random] + " to celebrate his draft");
+	}
+	
 }
