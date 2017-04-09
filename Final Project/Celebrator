@@ -1,0 +1,8 @@
+package final_project;
+
+public interface Celebrator {
+
+	public abstract void celebrate(); 
+	
+	
+}
