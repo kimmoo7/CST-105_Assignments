@@ -1,1 +1,273 @@
+package final_project;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UserInterface {
+	/**
+	 * basic outline for the ui:
+	 * 
+	 * Main Menu
+	 *    - Add Player
+	 *       - Pick by Team
+	 *          - Pick Team
+	 *             - Enter Player Index
+	 *       - Pick by Position
+	 *          - Pick Position
+	 *             - Enter Player Index
+	 *             
+	 *    - Remove Player
+	 *    	 - Pick Player
+	 *    		- Enter Player Index
+	 *    
+	 *    - Quit
+	 */
+	
+	PlayerManager manager;
+	ArrayList<NFLPlayer> roster;
+	
+	UserInterface() {
+		this.roster = new ArrayList<NFLPlayer>();
+		this.manager = new PlayerManager();
+		this.manager.createPlayers();
+	}
+
+	public static void main(String[] args) {
+		// Print a welcome message
+		System.out.println("Welcome!");
+		
+		while (true) {
+			// Print a list of options
+			System.out.println("[a] - Add a player to your roster \n "
+					+ "[r] - Remove a player from your roster \n"
+					+ "[q] - Exit this draft program");
+		
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of what you would like to do "
+					+ "('a' to add a player, 'r' to remove a player, 'q' to quit): ");
+			String option1 = input.nextLine();
+			
+			switch (option1) {
+				/**
+				 * Have a case for add, remove, and quit
+				 * 
+				 * Also have a default case that displays an error message, something like:
+				 * 'Unrecognized option.  Please try again.'
+				 */
+			case 1: "add";
+			case 2: ""
+			}
+		}
+	}
+	
+	private void addPlayer() {
+		while(true) {
+			// Print a list of options
+			System.out.println("[t] - Get a list of players by team \n "
+					+ "[p] - Get a list of players by position \n "
+					+ "[b] - Go back to the main menu");
+
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of what you would like to do: ");
+			String option2 = input.nextLine();
+			
+			switch (option2) {
+			/**
+			 * Have a case for team, position, and back
+			 * 
+			 * Also have a default case that displays an error message, something like:
+			 * 'Unrecognized option.  Please try again.'
+			 */
+			}
+		}
+	}
+	
+	private void addByTeam() {
+		while(true) {
+			/**
+			 * Get a list of teams using the PlayerManager variable we have.
+			 * 
+			 * Loop through these and output each team with it's index, something like:
+			 * 
+			 * 
+			 *  [0] - New England Patriots
+			 *  [1] - Los Angeles Raiders
+			 *  
+			 *  Also print a back option, something like:
+			 *  
+			 *  [back] - Get back to the team/position menu
+			 */
+
+			/**
+			 * Get the user input
+			 */
+			if (/* The team list is an array list, use one of it's functions to check if the input
+				given is a valid index for it*/) {
+				// call the function to display the players for the given team (Hint: pass the team name to that function)
+				// return;
+			} else if (option == 'back') {
+				// return
+			}
+			/**
+			 * If they didn't give you a valid index or the back option, then display an error message, something like:
+			 * 'Invalid index.  Please try again.'
+			 */
+		}
+	}
+	
+	private void teamList(/*teamName*/) {
+		while(true) {
+			/**
+			 * Get a list of players for the team using the PlayerManager variable we have.
+			 * 
+			 * Loop through these and output each player with it's index, something like:
+			 * 
+			 * 
+			 *  [0] - Tom Braby
+			 *  [1] - That other patriots guy
+			 *  
+			 *  Also print a back option, something like:
+			 *  
+			 *  [back] - Get back to the team list
+			 */
+			
+			 
+			for (int i = 0; i < PlayerManager.teamPlayers.size(); i++) {
+				
+			}
+
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of a player to view statistics: ");
+			String option3 = input.nextLine();
+			
+			if (/* The player list is an array list, use one of it's functions to check if the input
+					given is a valid index for it*/) {
+				// get the player from your array list using the index they gave you
+				// make that player celebrate
+				// add that player to the roster (Which is the ArrayList<NFLPlayer> class variable we have)
+				// return;
+			} else if (option3 == 'back') {
+				return;
+			}
+			/**
+			 * If they didn't give you a valid index or the back option, then display an error message, something like:
+			 * 'Invalid index.  Please try again.'
+			 */
+		}
+	}
+	
+	private void addByPosition() {
+		while(true) {
+			/**
+			 * Get a list of position using the PlayerManager variable we have.
+			 * 
+			 * Loop through these and output each position with it's index, something like:
+			 * 
+			 * 
+			 *  [0] - Quarter Back
+			 *  [1] - Offensive Lineman
+			 *  
+			 *  Also print a back option, something like:
+			 *  
+			 *  [back] - Get back to the team/position menu
+			 */
+
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of a position to view the players who play"
+					+ "that position: ");
+			String option4 = input.nextLine();
+			
+			if (/* The position list is an array list, use one of it's functions to check if the input
+				given is a valid index for it*/) {
+				// call the function to display the players for the given position (Hint: pass the position name to that function)
+				// return;
+			} else if (option == 'back') {
+				// return
+			}
+			/**
+			 * If they didn't give you a valid index or the back option, then display an error message, something like:
+			 * 'Invalid index.  Please try again.'
+			 */
+		}
+	}
+	
+	private void postionList(/*positionName*/) {
+		while(true) {
+			/**
+			 * Get a list of players for the position using the PlayerManager variable we have.
+			 * 
+			 * Loop through these and output each player with it's index, something like:
+			 * 
+			 * 
+			 *  [0] - Tom Braby
+			 *  [1] - Robert Griffin III
+			 *  [2] - Some other QB
+			 *  
+			 *  Also print a back option, something like:
+			 *  
+			 *  [back] - Get back to the position list
+			 */
+
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of the player to view statistics: ");
+			String option5 = input.nextLine();
+			
+			if (/* The player list is an array list, use one of it's functions to check if the input
+					given is a valid index for it*/) {
+				// get the player from your array list using the index they gave you
+				// make that player celebrate
+				// add that player to the roster (Which is the ArrayList<NFLPlayer> class variable we have)
+				// return;
+			} else if (option == 'back') {
+				// return;
+			}
+			/**
+			 * If they didn't give you a valid index or the back option, then display an error message, something like:
+			 * 'Invalid index.  Please try again.'
+			 */
+		}
+	}
+	
+
+	private void removePlayer () {
+		while(true) {
+			/**
+			 * Loop through all the players in the current roster and output
+			 * each player with it's index, something like:
+			 * 
+			 * 
+			 *  [0] - Tom Braby
+			 *  [1] - Ray Rice
+			 *  [2] - Some other guy you picked
+			 *  
+			 *  Also print a back option, something like:
+			 *  
+			 *  [back] - Get back to the main menu
+			 */
+
+			// Get the user input
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the index of a player to remove him from the roster: ");
+			String removeOption = input.nextLine();
+			 
+			if (/* The roster is an array list, use one of it's functions to check if the input
+					given is a valid index for it*/) {
+				// remove that player from the roster (Which is the ArrayList<NFLPlayer> class variable we have)
+				// return;
+			} else if (option == 'b') {
+				// return;
+				return;
+			}
+			/**
+			 * If they didn't give you a valid index or the back option, then display an error message, something like:
+			 * 'Invalid index.  Please try again.'
+			 */
+		}
+	}
+}
 
